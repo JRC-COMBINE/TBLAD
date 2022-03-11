@@ -9,15 +9,17 @@ TBLAD is a software package implemented in Python for analysis of diverse ampero
 
 The classification scripts should be executed in the following order:
 
-* `preprocessor.py` splits the raw data into chunks of length chunk_size and assign each chunk with a label. The output .pkl files are stored unter './dataframe/'
-* `train.py` extracts `tsfresh` features from each chunk, the output is written to `./Features/`. Note that this script requires high computational power, recommended to run on the server.
-* `evaluation.py` trains the decision-tree classifiers (including random forest, extra trees and xgboost) and returns the following
+* `preprocessor` splits the raw data into chunks of length chunk_size and assign each chunk with a label. The output .pkl files are stored unter `./dataframe/`
+* `train` extracts `tsfresh` features from each chunk, the output is written to `./Features/`. Note that this script requires high computational power, recommended to run on the server.
+* `evaluation` trains the decision-tree classifiers (including random forest, extra trees and xgboost) and returns the following
    * accuracy and standard deviation
    * top features with importance values
    * heat map of cross-correlation
    * bar plot of the feature importances
    * an visualization of one of the decision trees. 
-   * list of relevant features and their importance values as `.csv` file under `Features/` 
+   * list of relevant features and their importance values as `csv` file under `Features/` 
+
+
 `params` has  global settings for the classification. Most important parameters are: data path, chunk size (please select this based on your computational capacity), number of forests (to provide information on the standard deviation of the accuracy), number of decision trees per forest(required for RF and ET). `visualization` provides an visualization of the raw time series data. The path name should be changes by future users under `params`.
    
 **OS Compatibility**
